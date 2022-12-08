@@ -3,16 +3,13 @@ import axios from 'axios';
 import './App.css';
 
 const API_URL = 'http://localhost:8080/';
-const zeroError = "Делене на -0- не е разрешена операция";
-const invalidError = "Невалидни числени стойности";
 
 class App extends Component {
 
   state = {
     firstValue: "",
     secondValue: "",
-    message: "",
-    name: ""
+    message: ""
   };
   handleInput = event => {
     this.setState({ firstValue: event.target.value });
@@ -22,8 +19,14 @@ class App extends Component {
   };
 
   handleClick = () => {
-    
-  }
+    axios.get(API_URL + "calculate",{
+      params:{
+        firstNumber: this.state.firstValue,
+        secondNumber: this.state.secondValue
+      }}).then((response)=>{
+        this.setState({message: response.data});
+      });
+   };
 
   render() {
     return (
@@ -42,7 +45,8 @@ class App extends Component {
           <button type="button" onClick={this.handleClick}>Изчисли</button>
         </div>
         <div>
-        <input id="input-03" type="text" value={this.state.message}/>
+          <h3></h3>
+        <input id="input-03" type="text" value={this.state.message} size="40"/>
         </div>
       </div>
     );

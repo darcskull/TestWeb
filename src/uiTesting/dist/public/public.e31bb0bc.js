@@ -34123,8 +34123,6 @@ function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key i
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 var API_URL = 'http://localhost:8080/';
-var zeroError = "Делене на -0- не е разрешена операция";
-var invalidError = "Невалидни числени стойности";
 var App = /*#__PURE__*/function (_Component) {
   _inherits(App, _Component);
   var _super = _createSuper(App);
@@ -34138,8 +34136,7 @@ var App = /*#__PURE__*/function (_Component) {
     _defineProperty(_assertThisInitialized(_this), "state", {
       firstValue: "",
       secondValue: "",
-      message: "",
-      name: ""
+      message: ""
     });
     _defineProperty(_assertThisInitialized(_this), "handleInput", function (event) {
       _this.setState({
@@ -34151,7 +34148,18 @@ var App = /*#__PURE__*/function (_Component) {
         secondValue: event.target.value
       });
     });
-    _defineProperty(_assertThisInitialized(_this), "handleClick", function () {});
+    _defineProperty(_assertThisInitialized(_this), "handleClick", function () {
+      _axios.default.get(API_URL + "calculate", {
+        params: {
+          firstNumber: _this.state.firstValue,
+          secondNumber: _this.state.secondValue
+        }
+      }).then(function (response) {
+        _this.setState({
+          message: response.data
+        });
+      });
+    });
     return _this;
   }
   _createClass(App, [{
@@ -34172,10 +34180,11 @@ var App = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null), /*#__PURE__*/_react.default.createElement("button", {
         type: "button",
         onClick: this.handleClick
-      }, "\u0418\u0437\u0447\u0438\u0441\u043B\u0438")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("input", {
+      }, "\u0418\u0437\u0447\u0438\u0441\u043B\u0438")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null), /*#__PURE__*/_react.default.createElement("input", {
         id: "input-03",
         type: "text",
-        value: this.state.message
+        value: this.state.message,
+        size: "40"
       })));
     }
   }]);
@@ -34217,7 +34226,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58248" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56151" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
