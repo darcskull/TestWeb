@@ -18,12 +18,11 @@ public class DemoController {
             int firstValue = Integer.parseInt(firstNumber);
             int secondValue = Integer.parseInt(secondNumber);
 
-            if (secondValue != 0) {
-                int value = firstValue / secondValue;
-                return ResponseEntity.ok(String.valueOf(value));
-            } else {
+            if (secondValue == 0) {
                 return ResponseEntity.ok("Делене на -0- не е разрешена операция");
             }
+
+            return ResponseEntity.ok(String.valueOf(firstValue / secondValue));
 
         } catch (Exception exception) {
             return ResponseEntity.ok("Невалидни числени стойности");

@@ -34154,6 +34154,11 @@ var App = /*#__PURE__*/function (_Component) {
           firstNumber: _this.state.firstValue,
           secondNumber: _this.state.secondValue
         }
+      }, {
+        Headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+        }
       }).then(function (response) {
         _this.setState({
           message: response.data
@@ -34167,25 +34172,37 @@ var App = /*#__PURE__*/function (_Component) {
     value: function render() {
       return /*#__PURE__*/_react.default.createElement("div", {
         className: "App"
-      }, /*#__PURE__*/_react.default.createElement("h1", null, "\u041A\u0430\u043B\u043A\u0443\u043B\u0430\u0442\u043E\u0440"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "\u0412\u044A\u0432\u0435\u0434\u0435\u0442\u0435 \u043F\u044A\u0440\u0432\u043E \u0447\u0438\u0441\u043B\u043E"), /*#__PURE__*/_react.default.createElement("input", {
+      }, /*#__PURE__*/_react.default.createElement("h1", null, "\u0412\u044A\u0432\u0435\u0434\u0435\u0442\u0435 \u0434\u0432\u0435 \u0446\u0435\u043B\u0438 \u0447\u0438\u0441\u043B\u0430, \u043A\u043E\u0438\u0442\u043E \u0434\u0430 \u0431\u044A\u0434\u0430\u0442 \u0440\u0430\u0437\u0434\u0435\u043B\u0435\u043D\u0438"), /*#__PURE__*/_react.default.createElement("div", {
+        class: "content"
+      }, /*#__PURE__*/_react.default.createElement("div", {
+        class: "red"
+      }, "\u0412\u044A\u0432\u0435\u0434\u0435\u0442\u0435 \u043F\u044A\u0440\u0432\u043E \u0447\u0438\u0441\u043B\u043E"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("input", {
         id: "input-01",
         type: "text",
         maxLength: 8,
         onChange: this.handleInput
-      })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "\u0412\u044A\u0432\u0435\u0434\u0435\u0442\u0435 \u0432\u0442\u043E\u0440\u043E \u0447\u0438\u0441\u043B\u043E"), /*#__PURE__*/_react.default.createElement("input", {
+      }))), /*#__PURE__*/_react.default.createElement("div", {
+        class: "content"
+      }, /*#__PURE__*/_react.default.createElement("div", {
+        class: "green"
+      }, "\u0412\u044A\u0432\u0435\u0434\u0435\u0442\u0435 \u0432\u0442\u043E\u0440\u043E \u0447\u0438\u0441\u043B\u043E"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("input", {
         id: "input-02",
         type: "text",
         maxLength: 8,
         onChange: this.handleInput2
-      })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null), /*#__PURE__*/_react.default.createElement("button", {
+      }))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
         type: "button",
         onClick: this.handleClick
-      }, "\u0418\u0437\u0447\u0438\u0441\u043B\u0438")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null), /*#__PURE__*/_react.default.createElement("input", {
+      }, "\u0418\u0437\u0447\u0438\u0441\u043B\u0438")), /*#__PURE__*/_react.default.createElement("div", {
+        class: "content"
+      }, /*#__PURE__*/_react.default.createElement("div", {
+        class: "blue"
+      }, "\u041F\u043E\u043B\u0443\u0447\u0435\u043D \u0440\u0435\u0437\u0443\u043B\u0442\u0430\u0442"), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("input", {
         id: "input-03",
         type: "text",
         value: this.state.message,
         size: "40"
-      })));
+      }))));
     }
   }]);
   return App;
@@ -34226,7 +34243,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54568" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56628" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

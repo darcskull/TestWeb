@@ -23,7 +23,12 @@ class App extends Component {
       params:{
         firstNumber: this.state.firstValue,
         secondNumber: this.state.secondValue
-      }}).then((response)=>{
+      }},{
+        Headers:{
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+        }
+      }).then((response)=>{
         this.setState({message: response.data});
       });
    };
@@ -31,22 +36,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Калкулатор</h1>
-        <div>
-          <h3>Въведете първо число</h3>
-          <input id="input-01" type="text" maxLength={8} onChange={this.handleInput}/>
+        <h1>Въведете две цели числа, които да бъдат разделени</h1>
+        <div class ="content">
+          <div class="red">Въведете първо число</div>
+          <div><input id="input-01" type="text" maxLength={8} onChange={this.handleInput}/></div>
+        </div>
+        <div class ="content">
+          <div class="green">Въведете второ число</div>
+          <div><input id="input-02" type="text" maxLength={8} onChange={this.handleInput2}/></div>
         </div>
         <div>
-          <h3>Въведете второ число</h3>
-          <input id="input-02" type="text" maxLength={8} onChange={this.handleInput2}/>
-        </div>
-        <div>
-          <h3></h3>
           <button type="button" onClick={this.handleClick}>Изчисли</button>
         </div>
-        <div>
-          <h3></h3>
-        <input id="input-03" type="text" value={this.state.message} size="40"/>
+        <div class = "content">
+          <div class="blue">Получен резултат</div>
+          <div><input id="input-03" type="text" value={this.state.message} size="40"/></div>
         </div>
       </div>
     );
