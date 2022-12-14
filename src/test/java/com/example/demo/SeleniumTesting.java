@@ -17,7 +17,7 @@ public class SeleniumTesting {
     }
 
     @Test
-    public void testDevideByZero() throws InterruptedException {
+    public void testDivideByZero() throws InterruptedException {
         String zeroMessage = "Делене на -0- не е разрешена операция";
         testSelenium("12556", "0", zeroMessage);
     }
